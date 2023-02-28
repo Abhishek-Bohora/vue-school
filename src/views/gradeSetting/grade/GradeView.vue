@@ -1,3 +1,25 @@
+<script setup>
+import axios from "axios";
+import { ref, onMounted } from "vue";
+
+const grades = ref([]);
+const getAllGrades = async () => {
+  try {
+    const response = await axios.get("https://localhost:7049/api/Grade");
+    if (response.status === 200) {
+      grades.value = response.data;
+      // console.log(grades);
+    }
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+
+onMounted(async () => {
+  await getAllGrades();
+});
+</script>
+
 <template>
   <div class="mb-2">
     <router-link
@@ -11,28 +33,17 @@
     <table class="shadow-lg bg-white border-separate">
       <tr>
         <th class="bg-blue-100 border text-left px-8 py-4">S.N</th>
-        <th class="bg-blue-100 border text-left px-8 py-4">Class Name</th>
+        <th class="bg-blue-100 border text-left px-8 py-4">Grade Name</th>
+        <th class="bg-blue-100 border text-left px-8 py-4">Section</th>
         <th class="bg-blue-100 border text-left px-8 py-4">
           Number of student
         </th>
         <th class="bg-blue-100 border text-left px-8 py-4">Action</th>
       </tr>
-      <tr>
-        <td class="border px-8 py-4">1</td>
-        <td class="border px-8 py-4">Four</td>
-        <td class="border px-8 py-4"></td>
-        <td class="border px-8 py-4"></td>
-      </tr>
-      <tr>
-        <td class="border px-8 py-4">1</td>
-        <td class="border px-8 py-4">Four</td>
-        <td class="border px-8 py-4"></td>
-        <td class="border px-8 py-4"></td>
-      </tr>
-      <tr>
-        <td class="border px-8 py-4">1</td>
-        <td class="border px-8 py-4">Four</td>
-        <td class="border px-8 py-4"></td>
+      <tr v-for="grade in grades" :key="grade.id">
+        <td class="border px-8 py-4">{{ grade.id }}</td>
+        <td class="border px-8 py-4">{{ grade.name }}</td>
+        <td class="border px-8 py-4">{{ grade.section }}</td>
         <td class="border px-8 py-4"></td>
       </tr>
     </table>
