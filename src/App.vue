@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-  <div>
+  <div data-theme="light">
     <router-view />
   </div>
 </template>
