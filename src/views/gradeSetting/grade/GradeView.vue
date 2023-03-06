@@ -47,9 +47,12 @@ onMounted(async () => {
           <td>{{ grade.section }}</td>
           <td></td>
           <td>
-            <button class="btn btn-square btn-accent">
+            <router-link
+              :to="`/grade/edit/${grade.id}`"
+              class="btn btn-square btn-accent"
+            >
               <Icon icon="material-symbols:edit-sharp" width="16" />
-            </button>
+            </router-link>
             <button
               class="btn btn-circle mx-3 btn-secondary bg-red-500 hover:bg-red-600"
             >

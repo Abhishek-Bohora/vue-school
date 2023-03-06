@@ -2,9 +2,9 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import SubjectView from "../views/gradeSetting/subject/SubjectView.vue";
 import GradeView from "../views/gradeSetting/grade/GradeView.vue";
-import AddSubject from "../views/gradeSetting/subject/AddSubject.vue";
 import AddGrade from "../views/gradeSetting/grade/AddGrade.vue";
 import Dashboard from "../views/Dashboard.vue";
+import EditGrade from "../views/gradeSetting/grade/EditGrade.vue";
 // import App from "../App.vue";
 const routes = [
   {
@@ -16,6 +16,7 @@ const routes = [
       { path: "/subjects", name: "subjects", component: SubjectView },
       { path: "/grades", name: "grades", component: GradeView },
       { path: "/grade/add", name: "addgrade", component: AddGrade },
+      { path: "/grade/edit/:id", name: "editGrade", component: EditGrade },
     ],
   },
 ];
