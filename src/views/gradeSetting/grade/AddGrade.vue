@@ -27,24 +27,20 @@ const onSubmit = async () => {
 </script>
 
 <template>
-  <h2 class="text-xl fotn-sans m-2">Add Grade</h2>
+  <h2 class="text-xl fotn-sans m-2 font-semibold">Add Grade</h2>
   <form action="" @submit.prevent="onSubmit">
     <input
       type="text"
       placeholder="Enter grade name"
-      class="border py-2 px-3 text-grey-darkest mx-2"
+      class="border py-3 px-3 text-grey-darkest mx-2 rounded-md"
       v-model="grade.name"
     />
     <input
       type="text"
       placeholder="Enter section"
-      class="border py-2 px-3 text-grey-darkest mx-2"
+      class="border py-3 px-3 text-grey-darkest mx-2 rounded-md"
       v-model="grade.section"
     />
-    <button
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-    >
-      Submit
-    </button>
+    <button class="btn btn-primary">Add</button>
   </form>
 </template>

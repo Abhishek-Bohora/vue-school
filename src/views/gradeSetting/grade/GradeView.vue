@@ -16,6 +16,14 @@ const getAllGrades = async () => {
   }
 };
 
+const deleteGrade = async (id) => {
+  const response = await axios.delete(`https://localhost:7049/api/Grade/${id}`);
+  if (response.status === 200) {
+    location.reload();
+    console.log("Deleted successfully");
+  }
+};
+
 onMounted(async () => {
   await getAllGrades();
 });
@@ -54,6 +62,7 @@ onMounted(async () => {
               <Icon icon="material-symbols:edit-sharp" width="16" />
             </router-link>
             <button
+              @click="deleteGrade(grade.id)"
               class="btn btn-circle mx-3 btn-secondary bg-red-500 hover:bg-red-600"
             >
               <Icon icon="fluent:delete-28-filled" width="16" />
