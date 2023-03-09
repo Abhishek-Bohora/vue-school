@@ -5,7 +5,9 @@ import GradeView from "../views/gradeSetting/grade/GradeView.vue";
 import AddGrade from "../views/gradeSetting/grade/AddGrade.vue";
 import Dashboard from "../views/Dashboard.vue";
 import EditGrade from "../views/gradeSetting/grade/EditGrade.vue";
-// import App from "../App.vue";
+import AddSubject from "../views/gradeSetting/subject/AddSubject.vue";
+import EditSubject from "../views/gradeSetting/subject/EditSubject.vue";
+
 const routes = [
   {
     path: "/",
@@ -13,9 +15,11 @@ const routes = [
     component: Home,
     children: [
       { path: "", name: "dashboard", component: Dashboard },
-      { path: "/subjects", name: "subjects", component: SubjectView },
-      { path: "/grades", name: "grades", component: GradeView },
-      { path: "/grade/add", name: "addgrade", component: AddGrade },
+      { path: "/subject", name: "subject", component: SubjectView },
+      { path: "/subject/add", name: "addSubject", component: AddSubject },
+      { path: "/subject/edit/:id", name: "editSubject", component: EditSubject },
+      { path: "/grade", name: "grade", component: GradeView },
+      { path: "/grade/add", name: "addGrade", component: AddGrade },
       { path: "/grade/edit/:id", name: "editGrade", component: EditGrade },
     ],
   },
