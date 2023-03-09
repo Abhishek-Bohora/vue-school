@@ -2,6 +2,7 @@
 import axios from "axios";
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
+import router from "../../../router";
 const route = useRoute();
 
 const id = route.params.id;
@@ -32,6 +33,7 @@ const editGrade = async () => {
 
 const onSubmit = async () => {
   await editGrade();
+  router.push({ path: "/grade" });
 };
 //console.log(id);
 
@@ -43,18 +45,10 @@ onMounted(async () => {
 <template>
   <h2 class="text-xl fotn-sans m-2 font-semibold">Edit Grade</h2>
   <form action="" @submit.prevent="onSubmit">
-    <input
-      type="text"
-      placeholder="Enter grade name"
-      class="border py-3 px-3 text-grey-darkest mx-2 rounded-md"
-      v-model="grade.name"
-    />
-    <input
-      type="text"
-      placeholder="Enter section"
-      class="border py-3 px-3 text-grey-darkest mx-2 rounded-md"
-      v-model="grade.section"
-    />
+    <input type="text" placeholder="Enter grade name" class="border py-3 px-3 text-grey-darkest mx-2 rounded-md"
+      v-model="grade.name" />
+    <input type="text" placeholder="Enter section" class="border py-3 px-3 text-grey-darkest mx-2 rounded-md"
+      v-model="grade.section" />
     <button class="btn btn-primary">Update</button>
   </form>
 </template>
